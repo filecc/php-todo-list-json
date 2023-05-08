@@ -6,10 +6,12 @@ createApp({
       todos: null,
       apiUrl: "./server.php",
       newTask: "",
+      todo: []
     };
   },
   methods: {
     getData() {
+        this.todo = [];
       axios.get(this.apiUrl).then((res) => {
         this.todos = res.data;
         // ordering
@@ -22,7 +24,16 @@ createApp({
           }
           return 0;
         });
+
+        
+        // getnot completed
+        this.todos.forEach(element => {
+            if (element.completed === '0'){
+                this.todo.push(element)
+            }
+        });
       });
+      
     },
     addTask() {
       const data = {
@@ -48,7 +59,6 @@ createApp({
       } else {
         found.completed = "1";
       }
-
       axios
         .post(this.apiUrl, this.todos, {
           headers: {
@@ -59,6 +69,26 @@ createApp({
           this.getData();
         });
     },
+    deleteCompleted(){
+        this.todo = [];
+        this.todos.forEach(element => {
+            if (element.completed === '0'){
+                this.todo.push(element)
+            }
+        });
+        console.log(this.todo)
+        
+        axios
+        .post(this.apiUrl, this.todo, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then((res) => {
+          this.getData();
+        });
+      
+    }
   },
   mounted() {
     this.getData();
