@@ -21,12 +21,12 @@
     </header>
     <div id="app">
       <div class="d-flex gap-2 align-items-center py-3">
-        <input v-model="newTask" class="input-group-text d-inline-block text-start" type="text">
-        <button class="btn btn-primary">Aggiungi</button>
+        <input id="newTask" @keyup.enter="addTask()" v-model="newTask" class="input-group-text d-inline-block text-start" type="text" name="newTask">
+        <button :disabled="newTask.trim().length <= 0" @click="addTask()" class="btn btn-primary">Aggiungi</button>
       </div>
      <ul>
       <template v-for="todo in todos">
-        <li @click="todo.completed = !todo.completed" :class="todo.completed && 'text-decoration-line-through'" class="no-select">
+        <li @click="todo.completed = !todo.completed" :class="todo.completed && 'text-decoration-line-through'" class="no-select mb-1">
           <span v-if="todo.completed"><i class="bi bi-check-circle-fill text-success"></i></span>
           <span v-else><i class="bi bi-circle"></i></span>
           <span class="ms-2"> {{todo.content}} </span>

@@ -3,6 +3,7 @@
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
     cursor: pointer;
+    max-width: fit-content;
   }
   ul{
     list-style-type: none;

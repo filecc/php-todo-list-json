@@ -1,14 +1,1 @@
-[
-    {
-        "content": "Bere dell'acqua",
-        "completed": false
-    },
-    {
-        "content": "Chiamare medico",
-        "completed": false
-    },
-    {
-        "content": "Chiamare Zia Susanna",
-        "completed": false
-    }
-]
+[{"content":"Bere dell'acqua","completed":false},{"content":"Chiamare medico","completed":false},{"content":"Chiamare Zia Susanna","completed":false},{"content":"Ciaoo","completed":false},{"content":"Scusami","completed":false},{"content":"Sela sera sono tstt","completed":false}]
