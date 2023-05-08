@@ -17,22 +17,24 @@
 <body>
   <div class="wrapper container mx-auto">
     <header>
-      <h1>ToDo List</h1>
+      <h1 class="py-3">ToDo List</h1>
     </header>
     <div id="app">
       <div class="d-flex gap-2 align-items-center py-3">
-        <input id="newTask" @keyup.enter="addTask()" v-model="newTask" class="input-group-text d-inline-block text-start" type="text" name="newTask">
+        <input id="newTask" @keyup.enter="addTask()" v-model="newTask"
+          class="input-group-text d-inline-block text-start" type="text" name="newTask">
         <button :disabled="newTask.trim().length <= 0" @click="addTask()" class="btn btn-primary">Aggiungi</button>
       </div>
-     <ul>
-      <template v-for="todo in todos">
-        <li @click="todo.completed = !todo.completed" :class="todo.completed && 'text-decoration-line-through'" class="no-select mb-1">
-          <span v-if="todo.completed"><i class="bi bi-check-circle-fill text-success"></i></span>
+      <ul>
+
+        <li v-for="todo in todos" :id="todo.id" @click="(e) => removeTask(e)"
+          :class="todo.completed == true && 'text-decoration-line-through'" class="no-select mb-1">
+          <span v-if="todo.completed == true"><i class="bi bi-check-circle-fill text-success"></i></span>
           <span v-else><i class="bi bi-circle"></i></span>
           <span class="ms-2"> {{todo.content}} </span>
         </li>
-      </template>
-     </ul>
+
+      </ul>
     </div>
   </div>
 
