@@ -11,7 +11,7 @@ createApp({
   },
   methods: {
     getData() {
-        this.todo = [];
+    this.todo = [];
       axios.get(this.apiUrl).then((res) => {
         this.todos = res.data;
         // ordering
@@ -92,5 +92,6 @@ createApp({
   },
   mounted() {
     this.getData();
+   
   },
 }).mount("#app");

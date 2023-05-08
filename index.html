@@ -24,7 +24,7 @@
         <input id="newTask" @keyup.enter="addTask()" v-model="newTask"
           class="input-group-text d-inline-block text-start" type="text" name="newTask">
         <button :disabled="newTask.trim().length <= 0" @click="addTask()" class="btn btn-primary">Aggiungi</button>
-        <button :disabled="todo.length === 0" @click="deleteCompleted()" class="btn btn-danger">Rimuovi</button>
+        <button @click="deleteCompleted()" class="btn btn-danger">Rimuovi</button>
       </div>
       <ul>
 
